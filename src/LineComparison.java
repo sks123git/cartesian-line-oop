@@ -1,9 +1,20 @@
 import java.util.Scanner;
-
+//Java program to get cartesian line lengths
 public class LineComparison {
     public int lengthCalculate(int x1,int y1, int x2, int y2){ // Calculate length and return
         int length = (int)Math.pow((x2-x1),2) + (int)Math.pow((y2-y1),2);
         return (int)Math.sqrt(length);
+    }
+    public void checkEqual(int line1, int line2){       // Check quality and display
+        String firstLine = new String();
+        String secondLine = new String();
+        firstLine = (line1 + "0");
+        secondLine = (line2 + "0");
+        if(firstLine.equals(secondLine)==true){
+            System.out.println("Both lines are equal");
+        }else {
+            System.out.println("Both lines are not equal");
+        }
     }
     public static void main(String[] args) {
 
@@ -26,5 +37,6 @@ public class LineComparison {
         y4 = input.nextInt();
         Integer line1 =  length.lengthCalculate(x1,y1,x2,y2);
         Integer line2 =  length.lengthCalculate(x3,y3,x4,y4);
+        length.checkEqual(line1,line2);
     }
 }
