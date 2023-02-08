@@ -5,19 +5,23 @@ public class LineComparison {
         int length = (int)Math.pow((x2-x1),2) + (int)Math.pow((y2-y1),2);
         return (int)Math.sqrt(length);
     }
-    public void checkEqual(int line1, int line2){       // Check quality and display
-        String firstLine = new String();
-        String secondLine = new String();
-        firstLine = (line1 + "0");
-        secondLine = (line2 + "0");
-        if(firstLine.equals(secondLine)==true){
+    public void checkEqual(Integer line1, Integer line2){       // Check quality and display
+        if(line1.equals(line2)==true){
             System.out.println("Both lines are equal");
         }else {
             System.out.println("Both lines are not equal");
         }
     }
+    public void checkComparison(Integer line1, Integer line2){       // Check quality and display
+        if(line1.compareTo(line2) > 0){
+                System.out.println("Line 1 is greater");
+            } else if(line1.compareTo(line2) < 0){
+                System.out.println("Line 2 is greater");
+            } else {
+                System.out.println("Both the lines are equal");
+            }
+    }
     public static void main(String[] args) {
-
         System.out.println("HWelcome to Line Comparison Computation Program on Master Branch");
         Scanner input = new Scanner(System.in);
         LineComparison length = new LineComparison();
@@ -38,5 +42,6 @@ public class LineComparison {
         Integer line1 =  length.lengthCalculate(x1,y1,x2,y2);
         Integer line2 =  length.lengthCalculate(x3,y3,x4,y4);
         length.checkEqual(line1,line2);
+        length.checkComparison(line1,line2);
     }
 }
